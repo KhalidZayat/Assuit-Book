@@ -124,18 +124,16 @@
 		E96D9A15237BFAAB00F99AAC /* AssuitGuideBook */ = {
 			isa = PBXGroup;
 			children = (
+				E97579672384109100A0D899 /* Configs */,
+				E9757968238412ED00A0D899 /* StroyBoards */,
+				E9757969238413C300A0D899 /* Resources */,
 				E928275E237F038200587A57 /* Standers */,
+				E96D9A28237C007E00F99AAC /* UI_Custom */,
 				E928275D237F035000587A57 /* Api */,
 				E96D9A2E237C0C8900F99AAC /* Service */,
 				E96D9A2B237C00C700F99AAC /* Model */,
 				E96D9A2A237C00BF00F99AAC /* View */,
 				E96D9A29237C00B100F99AAC /* Controller */,
-				E96D9A28237C007E00F99AAC /* UI_Custom */,
-				E96D9A16237BFAAB00F99AAC /* AppDelegate.swift */,
-				E96D9A1A237BFAAB00F99AAC /* Main.storyboard */,
-				E96D9A1D237BFAAF00F99AAC /* Assets.xcassets */,
-				E96D9A1F237BFAAF00F99AAC /* LaunchScreen.storyboard */,
-				E96D9A22237BFAAF00F99AAC /* Info.plist */,
 			);
 			path = AssuitGuideBook;
 			sourceTree = "<group>";
@@ -186,6 +184,32 @@
 				E96D9A2F237C0CDA00F99AAC /* LocalService.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		E97579672384109100A0D899 /* Configs */ = {
+			isa = PBXGroup;
+			children = (
+				E96D9A22237BFAAF00F99AAC /* Info.plist */,
+				E96D9A16237BFAAB00F99AAC /* AppDelegate.swift */,
+			);
+			path = Configs;
+			sourceTree = "<group>";
+		};
+		E9757968238412ED00A0D899 /* StroyBoards */ = {
+			isa = PBXGroup;
+			children = (
+				E96D9A1A237BFAAB00F99AAC /* Main.storyboard */,
+				E96D9A1F237BFAAF00F99AAC /* LaunchScreen.storyboard */,
+			);
+			path = StroyBoards;
+			sourceTree = "<group>";
+		};
+		E9757969238413C300A0D899 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E96D9A1D237BFAAF00F99AAC /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -471,7 +495,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = AssuitGuideBook/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/AssuitGuideBook/Configs/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -489,7 +514,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = AssuitGuideBook/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/AssuitGuideBook/Configs/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
