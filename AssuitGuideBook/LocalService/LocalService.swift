@@ -21,16 +21,10 @@ class LocalService {
         Category(title: "المطاعم",imageName: "restaurant-50.png")
     ]
     
-    let doctorsList = ["أطفال","عيون","عظام","باطنة","جراحة","النسا والتوليد","القلب","الجلدية"]
-    
     let hospitalsList = ["المستشفيات العامة","المستشفيات الخاصة"]
     
     func getCategories() -> [Category] {
         return Categories
-    }
-    
-    func getDoctorsList() -> [String] {
-        return doctorsList
     }
     
     func getHospitalsList() -> [String] {

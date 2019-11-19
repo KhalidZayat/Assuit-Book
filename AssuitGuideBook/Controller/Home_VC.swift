@@ -58,19 +58,35 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource
                 if let specVC = segue.destination as? SpeacilizationVC
                 {
                     specVC.category = category
+                    specVC.callApi()
                 }
             case "hospital-50.png" :
                 if let specVC = segue.destination as? SpeacilizationVC
                 {
                     specVC.category = category
+                    specVC.speclizationList = LocalService.instance.getHospitalsList()
                 }
             default:
                 if let itemVC = segue.destination as? ItemVC
                 {
                     itemVC.category = category
+                    
+                    switch category?.imgName
+                    {
+                    case "lab-50.png" :
+                        itemVC.callApi(url: URLs.labsUrl)
+                    case "pharmacy-50.png" :
+                        itemVC.callApi(url: URLs.pharmaciesUrl)
+                    case "bedroom-50.png" :
+                        itemVC.callApi(url: URLs.hotelsUrl)
+                    case "restaurant-50.png" :
+                        itemVC.callApi(url: URLs.restaurantsUrl)
+                    default:
+                        return
+                    }
                 }
         }
-}
+    }
     
 }
 extension HomeVC: UICollectionViewDelegateFlowLayout

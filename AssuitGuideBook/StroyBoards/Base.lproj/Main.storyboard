@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -126,37 +125,49 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cYy-74-2Sb">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cYy-74-2Sb">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="speacilizationCell" rowHeight="73" id="jtS-xa-eVP" customClass="SpeacilizingCell" customModule="AssuitGuideBook" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="73"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="speacilizationCell" rowHeight="60" id="jtS-xa-eVP" customClass="SpeacilizingCell" customModule="AssuitGuideBook" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jtS-xa-eVP" id="MSA-OR-3Oh">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="73"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Doctor's speacilization" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N5J-O5-SKi">
-                                                    <rect key="frame" x="20" y="11" width="215" height="51"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                                    <color key="textColor" red="0.1656232178" green="0.24003368620000001" blue="0.6871221662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="syJ-jI-mfJ">
-                                                    <rect key="frame" x="362" y="11" width="22" height="51"/>
-                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="32"/>
-                                                    <color key="textColor" red="0.1656232178" green="0.24003368620000001" blue="0.6871221662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yeo-gF-HyR" customClass="CardView" customModule="AssuitGuideBook" customModuleProvider="target">
+                                                    <rect key="frame" x="5" y="5" width="404" height="50"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Doctor's speacilization" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N5J-O5-SKi">
+                                                            <rect key="frame" x="15" y="13" width="176.5" height="22"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                                            <color key="textColor" red="0.1656232178" green="0.24003368620000001" blue="0.6871221662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="syJ-jI-mfJ">
+                                                            <rect key="frame" x="362" y="15" width="22" height="20"/>
+                                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="32"/>
+                                                            <color key="textColor" red="0.1656232178" green="0.24003368620000001" blue="0.6871221662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstItem="N5J-O5-SKi" firstAttribute="leading" secondItem="yeo-gF-HyR" secondAttribute="leading" constant="15" id="AYS-5w-gpg"/>
+                                                        <constraint firstAttribute="trailing" secondItem="syJ-jI-mfJ" secondAttribute="trailing" constant="20" id="OlK-F5-r0x"/>
+                                                        <constraint firstAttribute="bottom" secondItem="N5J-O5-SKi" secondAttribute="bottom" constant="15" id="bMH-wm-aKV"/>
+                                                        <constraint firstAttribute="bottom" secondItem="syJ-jI-mfJ" secondAttribute="bottom" constant="15" id="eSt-Ch-Yw1"/>
+                                                        <constraint firstItem="syJ-jI-mfJ" firstAttribute="top" secondItem="yeo-gF-HyR" secondAttribute="top" constant="15" id="o2G-5U-RWI"/>
+                                                        <constraint firstItem="N5J-O5-SKi" firstAttribute="top" secondItem="yeo-gF-HyR" secondAttribute="top" constant="13" id="vC0-KX-Xy7"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottomMargin" secondItem="N5J-O5-SKi" secondAttribute="bottom" id="0Cm-8Y-v2k"/>
-                                                <constraint firstItem="N5J-O5-SKi" firstAttribute="top" secondItem="MSA-OR-3Oh" secondAttribute="topMargin" id="GCb-k8-sa0"/>
-                                                <constraint firstItem="syJ-jI-mfJ" firstAttribute="top" secondItem="MSA-OR-3Oh" secondAttribute="topMargin" id="ThJ-ok-Bfe"/>
-                                                <constraint firstItem="N5J-O5-SKi" firstAttribute="leading" secondItem="MSA-OR-3Oh" secondAttribute="leadingMargin" id="Wdp-te-tXo"/>
-                                                <constraint firstItem="syJ-jI-mfJ" firstAttribute="trailing" secondItem="MSA-OR-3Oh" secondAttribute="trailingMargin" constant="-10" id="Z94-Cn-zVz"/>
-                                                <constraint firstItem="syJ-jI-mfJ" firstAttribute="bottom" secondItem="MSA-OR-3Oh" secondAttribute="bottomMargin" id="aSX-Gc-IV3"/>
+                                                <constraint firstItem="yeo-gF-HyR" firstAttribute="top" secondItem="MSA-OR-3Oh" secondAttribute="top" constant="5" id="ETE-mA-dcL"/>
+                                                <constraint firstAttribute="bottom" secondItem="yeo-gF-HyR" secondAttribute="bottom" constant="5" id="En0-93-Hgf"/>
+                                                <constraint firstAttribute="trailing" secondItem="yeo-gF-HyR" secondAttribute="trailing" constant="5" id="SlK-Wc-mVc"/>
+                                                <constraint firstItem="yeo-gF-HyR" firstAttribute="leading" secondItem="MSA-OR-3Oh" secondAttribute="leading" constant="5" id="xLB-Go-zlD"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -204,7 +215,7 @@
                                 <rect key="frame" x="0.0" y="144" width="414" height="669"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="itemCell" rowHeight="190" id="GvV-2b-PAL" customClass="ItemCell" customModule="AssuitGuideBook" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="itemCell" rowHeight="190" id="GvV-2b-PAL" customClass="ItemCell" customModule="AssuitGuideBook" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="190"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GvV-2b-PAL" id="LWw-yC-kl2">
@@ -226,19 +237,19 @@
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="v08-u4-mIP">
                                                                     <rect key="frame" x="0.0" y="0.0" width="283" height="36"/>
-                                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
+                                                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
                                                                     <color key="textColor" red="0.1656232178" green="0.24003368620000001" blue="0.6871221662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="fR5-pM-Kej">
                                                                     <rect key="frame" x="0.0" y="42" width="283" height="36"/>
-                                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
                                                                     <color key="textColor" red="0.1656232178" green="0.24003368620000001" blue="0.6871221662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="NL7-R5-M6u">
                                                                     <rect key="frame" x="0.0" y="84" width="283" height="36"/>
-                                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
                                                                     <color key="textColor" red="0.1656232178" green="0.24003368620000001" blue="0.6871221662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
@@ -419,6 +430,6 @@
         <image name="share-30" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="aOV-bK-Cfo"/>
+        <segue reference="h99-7m-Fjb"/>
     </inferredMetricsTieBreakers>
 </document>

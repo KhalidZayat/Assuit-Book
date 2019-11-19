@@ -17,8 +17,12 @@ class ItemVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        Api.getItems(url: "https://assuit-guide90.000webhostapp.com/api-hotels.php") { (error: String?, items: [Item]?) in
+            
+        }
+    
+    func callApi(url: String)
+    {
+        Api.getItems(url) { (error: String?, items: [Item]?) in
             
             if error == nil{
                 self.items = items ?? [Item]()
@@ -27,11 +31,10 @@ class ItemVC: UIViewController {
             else{
                 print(error as Any)
             }
-            
         }
     }
-    
 }
+
 extension ItemVC: UITableViewDataSource,UITableViewDelegate
 {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -42,7 +45,7 @@ extension ItemVC: UITableViewDataSource,UITableViewDelegate
         if let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath) as? ItemCell
         {
             cell.delegate = self
-            cell.updateCell(cellIndex: indexPath, imgname: "bedroom-50.png",item: items[indexPath.row])
+            cell.updateCell(cellIndex: indexPath, imgname: category!.imgName,item: items[indexPath.row])
             return cell
         }else
         {
@@ -58,16 +61,16 @@ extension ItemVC: ItemCellDelegate
     }
     
     func makeACall(with id : IndexPath) {
-        if let url = URL(string: "tel://088\(String(describing: self.items[id.row].phone))"),
-            UIApplication.shared.canOpenURL(url) {
-            if #available(iOS 10, *) {
-                UIApplication.shared.open(url, options: [:], completionHandler:nil)
-            } else {
-                UIApplication.shared.openURL(url)
-            }
-        } else {
+        guard let url = URL(string: "tel://088\(String(describing: self.items[id.row].phone))")
+            else { return }
+        if UIApplication.shared.canOpenURL(url)
+         {
+            UIApplication.shared.open(url, options: [:], completionHandler:nil)
+         }
+         else
+         {
             print("Can't make a call !!")
-        }
+         }
     }
     
     func shareItem(with id : IndexPath) {
@@ -93,3 +96,4 @@ extension ItemVC: ItemCellDelegate
     }
     
 }
+

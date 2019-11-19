@@ -16,18 +16,22 @@ class SpeacilizationVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        if category?.imgName == "doctor-50.png"
-        {
-            speclizationList = LocalService.instance.getDoctorsList()
-        }
-        
-        if category?.imgName == "hospital-50.png"
-        {
-            speclizationList = LocalService.instance.getHospitalsList()
-        }
     }
     
+    func callApi()
+    {
+        Api.getDepartments(URLs.clinicsDepartmentsUrl){(error: String?, items: [String]?) in
+                if error == nil
+                {
+                    self.speclizationList = (items ?? nil)!
+                    self.speaclizationTableView.reloadData()
+                }
+                else
+                {
+                    print(error!)
+                }
+        }
+    }
 }
 
 extension SpeacilizationVC: UITableViewDataSource,UITableViewDelegate
@@ -50,13 +54,27 @@ extension SpeacilizationVC: UITableViewDataSource,UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "fromSpecilizationToItems", sender: category)
+        self.performSegue(withIdentifier: "fromSpecilizationToItems", sender: indexPath.row)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let itemVC = segue.destination as? ItemVC
         {
+            guard let index = sender as? Int else { return }
             itemVC.category = category
+            
+            if self.speclizationList[index] == "المستشفيات العامة"
+            {
+                itemVC.callApi(url: URLs.hospitalsUrl)
+            }
+            else if(self.speclizationList[index] == "المستشفيات الخاصة")
+            {
+                itemVC.callApi(url: URLs.specialHospitalsUrl)
+            }
+            else
+            {
+                itemVC.callApi(url: URLs.clinicsUrl+"?id=\(index+1)")
+            }
         }
     }
 }

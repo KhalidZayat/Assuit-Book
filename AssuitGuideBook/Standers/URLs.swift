@@ -15,9 +15,9 @@ struct URLs {
     static let clinicsUrl = mainUrl + "api-clinics.php"
     static let clinicsDepartmentsUrl = mainUrl + "api-departments.php"
     static let hospitalsUrl = mainUrl + "api-hospitals.php"
-    static let specialHospitalsUrl = mainUrl + "api-s_hospitals.php"
+    static let specialHospitalsUrl = mainUrl + "api-s_hospital.php"
     static let labsUrl = mainUrl + "api-labs.php"
     static let pharmaciesUrl = mainUrl + "api-pharmacy.php"
     static let hotelsUrl = mainUrl + "api-hotels.php"
-    static let restaurantsUrl = mainUrl + "api-resturants.php"
+    static let restaurantsUrl = mainUrl + "api-restaurants.php"
 }

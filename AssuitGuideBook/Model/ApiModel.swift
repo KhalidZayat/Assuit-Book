@@ -23,3 +23,4 @@ struct data: Decodable
         case address = "Address"
     }
 }
+

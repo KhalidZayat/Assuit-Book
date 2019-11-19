@@ -11,7 +11,36 @@ import Alamofire
 
 class Api: NSObject {
 
-    class func getItems(url: String , completion: @escaping (_ error: String?, _ item: [Item]?)->Void)
+    class func getDepartments(_ url: String , completion: @escaping (_ error: String?, _ daprtments: [String]?)->Void)
+    {
+        Alamofire.request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil)
+            .responseData {
+                response in
+                
+                switch response.result
+                {
+                case .failure(let error):
+                    do {
+                        completion(error.localizedDescription , nil)
+                    }
+                case .success(let value):
+                    do {
+                        let result = try JSONDecoder().decode(DapartmentsModel.self, from: value)
+                        
+                        var deps = [String]()
+                        for item in result.data
+                        {
+                            deps.append(item.name)
+                        }
+                        completion(nil , deps)
+                    }
+                    catch {
+                        completion(error.localizedDescription , nil)
+                    }
+                }
+        }
+    }
+    class func getItems(_ url: String , completion: @escaping (_ error: String?, _ item: [Item]?)->Void)
     {
         Alamofire.request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil)
             .responseData {

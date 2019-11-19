@@ -26,6 +26,7 @@
 		E96D9A3C237C519A00F99AAC /* SpeacilizationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96D9A3B237C519A00F99AAC /* SpeacilizationVC.swift */; };
 		E96D9A3E237C51DA00F99AAC /* ItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96D9A3D237C51DA00F99AAC /* ItemVC.swift */; };
 		E96D9A40237C546500F99AAC /* SpeacilizingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96D9A3F237C546500F99AAC /* SpeacilizingCell.swift */; };
+		E975796B238422E300A0D899 /* DepartmentsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E975796A238422E300A0D899 /* DepartmentsModel.swift */; };
 		E9AA38A4238057EE00794042 /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AA38A3238057EE00794042 /* URLs.swift */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +56,7 @@
 		E96D9A3B237C519A00F99AAC /* SpeacilizationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeacilizationVC.swift; sourceTree = "<group>"; };
 		E96D9A3D237C51DA00F99AAC /* ItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemVC.swift; sourceTree = "<group>"; };
 		E96D9A3F237C546500F99AAC /* SpeacilizingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeacilizingCell.swift; sourceTree = "<group>"; };
+		E975796A238422E300A0D899 /* DepartmentsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentsModel.swift; sourceTree = "<group>"; };
 		E9AA38A3238057EE00794042 /* URLs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -130,7 +132,7 @@
 				E928275E237F038200587A57 /* Standers */,
 				E96D9A28237C007E00F99AAC /* UI_Custom */,
 				E928275D237F035000587A57 /* Api */,
-				E96D9A2E237C0C8900F99AAC /* Service */,
+				E96D9A2E237C0C8900F99AAC /* LocalService */,
 				E96D9A2B237C00C700F99AAC /* Model */,
 				E96D9A2A237C00BF00F99AAC /* View */,
 				E96D9A29237C00B100F99AAC /* Controller */,
@@ -174,16 +176,17 @@
 				E96D9A31237C0DFF00F99AAC /* Category.swift */,
 				E90EEF8D237D12E200C37A7E /* Item.swift */,
 				E90CEAEE238067F10018AE0B /* ApiModel.swift */,
+				E975796A238422E300A0D899 /* DepartmentsModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		E96D9A2E237C0C8900F99AAC /* Service */ = {
+		E96D9A2E237C0C8900F99AAC /* LocalService */ = {
 			isa = PBXGroup;
 			children = (
 				E96D9A2F237C0CDA00F99AAC /* LocalService.swift */,
 			);
-			path = Service;
+			path = LocalService;
 			sourceTree = "<group>";
 		};
 		E97579672384109100A0D899 /* Configs */ = {
@@ -331,6 +334,7 @@
 				E96D9A19237BFAAB00F99AAC /* Home_VC.swift in Sources */,
 				E96D9A3C237C519A00F99AAC /* SpeacilizationVC.swift in Sources */,
 				E96D9A32237C0DFF00F99AAC /* Category.swift in Sources */,
+				E975796B238422E300A0D899 /* DepartmentsModel.swift in Sources */,
 				E9AA38A4238057EE00794042 /* URLs.swift in Sources */,
 				E91BFF0D2381A29800D3A599 /* CustomButton.swift in Sources */,
 				E90CEAEF238067F10018AE0B /* ApiModel.swift in Sources */,
