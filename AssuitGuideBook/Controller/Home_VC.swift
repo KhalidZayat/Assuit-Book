@@ -13,6 +13,7 @@ class HomeVC: UIViewController {
     @IBOutlet weak var categoriesCollectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = "دليلك فى أسيوط"
     }
 }
 
@@ -58,12 +59,14 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource
                 if let specVC = segue.destination as? SpeacilizationVC
                 {
                     specVC.category = category
+                    specVC.navigationItem.title = "العيادات"
                     specVC.callApi()
                 }
             case "hospital-50.png" :
                 if let specVC = segue.destination as? SpeacilizationVC
                 {
                     specVC.category = category
+                    specVC.navigationItem.title = "المستشفيات"
                     specVC.speclizationList = LocalService.instance.getHospitalsList()
                 }
             default:
@@ -75,12 +78,16 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource
                     {
                     case "lab-50.png" :
                         itemVC.callApi(url: URLs.labsUrl)
+                        itemVC.navigationItem.title = "معامل التحاليل"
                     case "pharmacy-50.png" :
                         itemVC.callApi(url: URLs.pharmaciesUrl)
+                        itemVC.navigationItem.title = "الصيدليات"
                     case "bedroom-50.png" :
                         itemVC.callApi(url: URLs.hotelsUrl)
+                        itemVC.navigationItem.title = "الفنادق"
                     case "restaurant-50.png" :
                         itemVC.callApi(url: URLs.restaurantsUrl)
+                        itemVC.navigationItem.title = "المطاعم"
                     default:
                         return
                     }

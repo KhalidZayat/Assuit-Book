@@ -66,14 +66,17 @@ extension SpeacilizationVC: UITableViewDataSource,UITableViewDelegate
             if self.speclizationList[index] == "المستشفيات العامة"
             {
                 itemVC.callApi(url: URLs.hospitalsUrl)
+                itemVC.navigationItem.title = "المستشفيات العامة"
             }
             else if(self.speclizationList[index] == "المستشفيات الخاصة")
             {
                 itemVC.callApi(url: URLs.specialHospitalsUrl)
+                itemVC.navigationItem.title = "المستشفيات الخاصة"
             }
             else
             {
                 itemVC.callApi(url: URLs.clinicsUrl+"?id=\(index+1)")
+                itemVC.navigationItem.title = "عيادات ( \(speclizationList[index]) )"
             }
         }
     }
