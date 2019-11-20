@@ -20,7 +20,7 @@ class CardView: UIView {
     }
     
     func setRadiusAndShadow() {
-        layer.cornerRadius = 5
+        layer.cornerRadius = 10
         clipsToBounds = true
         layer.masksToBounds = false
         layer.shadowRadius = 5

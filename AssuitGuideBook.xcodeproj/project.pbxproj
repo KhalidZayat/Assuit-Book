@@ -12,6 +12,9 @@
 		E90EEF8E237D12E200C37A7E /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90EEF8D237D12E200C37A7E /* Item.swift */; };
 		E91BFF0D2381A29800D3A599 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91BFF0C2381A29800D3A599 /* CustomButton.swift */; };
 		E9282760237F347600587A57 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = E928275F237F347600587A57 /* Api.swift */; };
+		E96B3F9F2385388E00CC535A /* NumberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96B3F9E2385388E00CC535A /* NumberCell.swift */; };
+		E96B3FA32385391F00CC535A /* NumbersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96B3FA22385391F00CC535A /* NumbersVC.swift */; };
+		E96B3FA7238563C300CC535A /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96B3FA6238563C300CC535A /* extensions.swift */; };
 		E96D9A17237BFAAB00F99AAC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96D9A16237BFAAB00F99AAC /* AppDelegate.swift */; };
 		E96D9A19237BFAAB00F99AAC /* Home_VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96D9A18237BFAAB00F99AAC /* Home_VC.swift */; };
 		E96D9A1C237BFAAB00F99AAC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E96D9A1A237BFAAB00F99AAC /* Main.storyboard */; };
@@ -40,6 +43,9 @@
 		E9137037237CB1ED00C7C463 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		E91BFF0C2381A29800D3A599 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		E928275F237F347600587A57 /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
+		E96B3F9E2385388E00CC535A /* NumberCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberCell.swift; sourceTree = "<group>"; };
+		E96B3FA22385391F00CC535A /* NumbersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumbersVC.swift; sourceTree = "<group>"; };
+		E96B3FA6238563C300CC535A /* extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
 		E96D9A13237BFAAB00F99AAC /* AssuitGuideBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AssuitGuideBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E96D9A16237BFAAB00F99AAC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E96D9A18237BFAAB00F99AAC /* Home_VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home_VC.swift; sourceTree = "<group>"; };
@@ -105,6 +111,14 @@
 			path = Standers;
 			sourceTree = "<group>";
 		};
+		E96B3FA5238562EF00CC535A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E96B3FA6238563C300CC535A /* extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		E96D9A0A237BFAAB00F99AAC = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +140,7 @@
 		E96D9A15237BFAAB00F99AAC /* AssuitGuideBook */ = {
 			isa = PBXGroup;
 			children = (
+				E96B3FA5238562EF00CC535A /* Extensions */,
 				E97579672384109100A0D899 /* Configs */,
 				E9757968238412ED00A0D899 /* StroyBoards */,
 				E9757969238413C300A0D899 /* Resources */,
@@ -156,6 +171,7 @@
 				E96D9A39237C516300F99AAC /* FavouritVC.swift */,
 				E96D9A3B237C519A00F99AAC /* SpeacilizationVC.swift */,
 				E96D9A3D237C51DA00F99AAC /* ItemVC.swift */,
+				E96B3FA22385391F00CC535A /* NumbersVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -166,6 +182,7 @@
 				E96D9A35237C105200F99AAC /* CategoryCell.swift */,
 				E96D9A37237C3E4E00F99AAC /* ItemCell.swift */,
 				E96D9A3F237C546500F99AAC /* SpeacilizingCell.swift */,
+				E96B3F9E2385388E00CC535A /* NumberCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -343,8 +360,11 @@
 				E96D9A2D237C0B8A00F99AAC /* CardView.swift in Sources */,
 				E9282760237F347600587A57 /* Api.swift in Sources */,
 				E96D9A3A237C516300F99AAC /* FavouritVC.swift in Sources */,
+				E96B3FA32385391F00CC535A /* NumbersVC.swift in Sources */,
 				E96D9A38237C3E4E00F99AAC /* ItemCell.swift in Sources */,
 				E96D9A17237BFAAB00F99AAC /* AppDelegate.swift in Sources */,
+				E96B3FA7238563C300CC535A /* extensions.swift in Sources */,
+				E96B3F9F2385388E00CC535A /* NumberCell.swift in Sources */,
 				E96D9A36237C105200F99AAC /* CategoryCell.swift in Sources */,
 				E96D9A3E237C51DA00F99AAC /* ItemVC.swift in Sources */,
 				E96D9A40237C546500F99AAC /* SpeacilizingCell.swift in Sources */,

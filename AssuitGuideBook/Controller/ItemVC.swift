@@ -22,11 +22,20 @@ class ItemVC: UIViewController {
     
     func callApi(url: String)
     {
+        let activityView = UIActivityIndicatorView(style: .gray)
+        activityView.center = self.view.center
+        activityView.transform = CGAffineTransform(scaleX: 3, y: 3)
+        activityView.color = #colorLiteral(red: 0.1656232178, green: 0.2400336862, blue: 0.6871221662, alpha: 1)
+        activityView.hidesWhenStopped = true
+        self.view.addSubview(activityView)
+        activityView.startAnimating()
+        
         Api.getItems(url) { (error: String?, items: [Item]?) in
             
             if error == nil{
                 self.items = items ?? [Item]()
                 self.itemsTableView.reloadData()
+                activityView.stopAnimating()
             }
             else{
                 print(error as Any)
@@ -56,29 +65,38 @@ extension ItemVC: UITableViewDataSource,UITableViewDelegate
 
 extension ItemVC: ItemCellDelegate
 {
-    func addToFavourites(with id: IndexPath, isSelected: Bool) {
-        self.items[id.row].isSelected = isSelected
-    }
     
+    
+    //call item's phone
     func makeACall(with id : IndexPath) {
-        guard let url = URL(string: "tel://088\(String(describing: self.items[id.row].phone))")
-            else { return }
-        if UIApplication.shared.canOpenURL(url)
-         {
+        
+        // generate phone numbers list
+        var numlist = self.items[id.row].phone.components(separatedBy: "/")
+        if(numlist.count > 1)
+        {
+            for i in 0..<numlist.count
+            {
+                 numlist[i] = "088\(numlist[i].trimmingCharacters(in: .whitespaces))"
+            }
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "NumbersVC") as! NumbersVC
+            vc.numberslist = numlist
+            vc.navigationItem.title = "أرقام الهاتف"
+            vc.navigationItem.leftBarButtonItem?.tintColor = #colorLiteral(red: 0.1656232178, green: 0.2400336862, blue: 0.6871221662, alpha: 1)
+            self.present(vc,animated: true)
+        }
+        else{
+            guard let url = URL(string: "tel://088\(String(describing: numlist[0]))")
+                else { return }
             UIApplication.shared.open(url, options: [:], completionHandler:nil)
-         }
-         else
-         {
-            print("Can't make a call !!")
-         }
+        }
     }
     
+    //share item as message
     func shareItem(with id : IndexPath) {
         let message = "الاسم// \(self.items[id.row].name)\nرقم الهاتف// ( \(self.items[id.row].phone) )\nالعنوان// \(self.items[id.row].address)"
         let activityController = UIActivityViewController(activityItems: [message], applicationActivities: nil)
         
         present(activityController, animated: true)
-        print(message)
     }
     
     func navigate(with id : IndexPath) {
@@ -93,6 +111,10 @@ extension ItemVC: ItemCellDelegate
         } else {
             print("Can't pass location !!")
         }
+    }
+    
+    func addToFavourites(with id: IndexPath, isSelected: Bool) {
+        self.items[id.row].isSelected = isSelected
     }
     
 }

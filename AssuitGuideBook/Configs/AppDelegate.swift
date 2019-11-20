@@ -21,6 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         MOLHLanguage.setDefaultLanguage("ar")
         MOLH.shared.activate(true)
         
+        UITabBar.appearance().tintColor = #colorLiteral(red: 0.1656232178, green: 0.2400336862, blue: 0.6871221662, alpha: 1)
+        UIBarButtonItem.appearance().setBackButtonTitlePositionAdjustment(UIOffset(horizontal: -1000.0, vertical: 0.0), for: .default)
         return true
     }
 
