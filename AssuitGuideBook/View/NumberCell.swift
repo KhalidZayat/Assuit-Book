@@ -9,10 +9,18 @@
 import UIKit
 
 class NumberCell: UITableViewCell {
-
     
     @IBOutlet weak var numberLable: UILabel!
+    @IBOutlet weak var checkButton: UIButton!
     
-    @IBOutlet weak var checkedImage: UIImageView!
+    override var isSelected: Bool {
+        didSet {
+            checkButton.isSelected = self.isSelected
+        }
+    }
     
+    func updateCell(phoneNumber: String)
+    {
+        numberLable.text = phoneNumber
+    }
 }

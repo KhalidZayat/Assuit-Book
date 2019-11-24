@@ -37,7 +37,6 @@ class ItemCell: UITableViewCell {
     
     
     @IBAction func didTappedBtnCall(_ sender: UIButton) {
-        
         self.delegate?.makeACall(with: id)
     }
     

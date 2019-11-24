@@ -7,24 +7,39 @@
 //
 
 import UIKit
+import MapKit
 
 class ItemVC: UIViewController {
 
     @IBOutlet weak var itemsTableView: UITableView!
     
     var category: Category? = nil
-    var items : [Item] = [Item]()
-    
+    var items : [Item] = [Item]()  {
+        didSet {
+            searchItem = items
+        }
+    }
+    var searchItem: [Item] = []
+    var searchController: UISearchController!
     override func viewDidLoad() {
         super.viewDidLoad()
-            
+            setupSearchbar()
         }
     
-    func callApi(url: String)
-    {
+    private func setupSearchbar() {
+        searchController = UISearchController(searchResultsController: nil)
+        searchController.dimsBackgroundDuringPresentation = true
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.delegate = self
+        self.navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = true
+        definesPresentationContext = true
+    }
+    
+    func callApi(url: String) {
         let activityView = UIActivityIndicatorView(style: .gray)
         activityView.center = self.view.center
-        activityView.transform = CGAffineTransform(scaleX: 3, y: 3)
+        activityView.transform = CGAffineTransform(scaleX: 2, y: 2)
         activityView.color = #colorLiteral(red: 0.1656232178, green: 0.2400336862, blue: 0.6871221662, alpha: 1)
         activityView.hidesWhenStopped = true
         self.view.addSubview(activityView)
@@ -47,14 +62,14 @@ class ItemVC: UIViewController {
 extension ItemVC: UITableViewDataSource,UITableViewDelegate
 {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
+        return searchItem.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath) as? ItemCell
         {
             cell.delegate = self
-            cell.updateCell(cellIndex: indexPath, imgname: category!.imgName,item: items[indexPath.row])
+            cell.updateCell(cellIndex: indexPath, imgname: category!.imgName,item: searchItem[indexPath.row])
             return cell
         }else
         {
@@ -79,9 +94,7 @@ extension ItemVC: ItemCellDelegate
                  numlist[i] = "088\(numlist[i].trimmingCharacters(in: .whitespaces))"
             }
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "NumbersVC") as! NumbersVC
-            vc.numberslist = numlist
-            vc.navigationItem.title = "أرقام الهاتف"
-            vc.navigationItem.leftBarButtonItem?.tintColor = #colorLiteral(red: 0.1656232178, green: 0.2400336862, blue: 0.6871221662, alpha: 1)
+            vc.initData(list: numlist)
             self.present(vc,animated: true)
         }
         else{
@@ -100,17 +113,10 @@ extension ItemVC: ItemCellDelegate
     }
     
     func navigate(with id : IndexPath) {
-        if (UIApplication.shared.canOpenURL(NSURL(string:"comgooglemaps://")! as URL)) {
-            if #available(iOS 10, *) {
-                UIApplication.shared.open(NSURL(string:
-                    "comgooglemaps://?saddr=&daddr=27.180953,31.182783&directionsmode=driving")! as URL)
-            } else {
-                UIApplication.shared.openURL(NSURL(string:
-                    "comgooglemaps://?saddr=&daddr=27.180953,31.182783&directionsmode=driving")! as URL)
-            }
-        } else {
-            print("Can't pass location !!")
-        }
+        let coordinate = CLLocationCoordinate2DMake(CLLocationDegrees(27.180953),CLLocationDegrees(31.182783))
+        let mapItem = MKMapItem(placemark: MKPlacemark(coordinate: coordinate, addressDictionary:nil))
+        mapItem.name = "Target location"
+        mapItem.openInMaps(launchOptions: [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving])
     }
     
     func addToFavourites(with id: IndexPath, isSelected: Bool) {
@@ -119,3 +125,24 @@ extension ItemVC: ItemCellDelegate
     
 }
 
+
+extension ItemVC: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if !searchText.isEmpty {
+            self.searchItem = items.filter( {
+                $0.name.contains(searchText)
+            })
+        } else {
+            self.searchItem = items
+        }
+         itemsTableView.reloadData()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = nil
+        searchBar.showsCancelButton = false
+        searchBar.endEditing(true)
+        self.searchItem = items
+        itemsTableView.reloadData()
+    }
+}

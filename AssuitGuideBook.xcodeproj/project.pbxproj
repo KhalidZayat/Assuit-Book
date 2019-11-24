@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B794AEB72386C6CB0040D0DD /* SelfSizedUITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B794AEB62386C6CB0040D0DD /* SelfSizedUITableView.swift */; };
 		E7ED662B4399F05D653DF0F4 /* Pods_AssuitGuideBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1053FECCA4D8FBEE549C5FF2 /* Pods_AssuitGuideBook.framework */; };
 		E90CEAEF238067F10018AE0B /* ApiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90CEAEE238067F10018AE0B /* ApiModel.swift */; };
 		E90EEF8E237D12E200C37A7E /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90EEF8D237D12E200C37A7E /* Item.swift */; };
@@ -36,6 +37,7 @@
 /* Begin PBXFileReference section */
 		1053FECCA4D8FBEE549C5FF2 /* Pods_AssuitGuideBook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AssuitGuideBook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE2A7C86B57437BDB40D3E74 /* Pods-AssuitGuideBook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AssuitGuideBook.release.xcconfig"; path = "Target Support Files/Pods-AssuitGuideBook/Pods-AssuitGuideBook.release.xcconfig"; sourceTree = "<group>"; };
+		B794AEB62386C6CB0040D0DD /* SelfSizedUITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelfSizedUITableView.swift; sourceTree = "<group>"; };
 		CFCFE6EA07EFCC6D36D88346 /* Pods-AssuitGuideBook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AssuitGuideBook.debug.xcconfig"; path = "Target Support Files/Pods-AssuitGuideBook/Pods-AssuitGuideBook.debug.xcconfig"; sourceTree = "<group>"; };
 		E90CEAEE238067F10018AE0B /* ApiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiModel.swift; sourceTree = "<group>"; };
 		E90EEF8D237D12E200C37A7E /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 		E96D9A28237C007E00F99AAC /* UI_Custom */ = {
 			isa = PBXGroup;
 			children = (
+				B794AEB62386C6CB0040D0DD /* SelfSizedUITableView.swift */,
 				E96D9A2C237C0B8A00F99AAC /* CardView.swift */,
 				E91BFF0C2381A29800D3A599 /* CustomButton.swift */,
 			);
@@ -362,6 +365,7 @@
 				E96D9A3A237C516300F99AAC /* FavouritVC.swift in Sources */,
 				E96B3FA32385391F00CC535A /* NumbersVC.swift in Sources */,
 				E96D9A38237C3E4E00F99AAC /* ItemCell.swift in Sources */,
+				B794AEB72386C6CB0040D0DD /* SelfSizedUITableView.swift in Sources */,
 				E96D9A17237BFAAB00F99AAC /* AppDelegate.swift in Sources */,
 				E96B3FA7238563C300CC535A /* extensions.swift in Sources */,
 				E96B3F9F2385388E00CC535A /* NumberCell.swift in Sources */,
@@ -519,6 +523,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P32HQ4NQT9;
 				INFOPLIST_FILE = "$(SRCROOT)/AssuitGuideBook/Configs/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -538,6 +543,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P32HQ4NQT9;
 				INFOPLIST_FILE = "$(SRCROOT)/AssuitGuideBook/Configs/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
