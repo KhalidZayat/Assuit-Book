@@ -8,19 +8,26 @@
 
 import UIKit
 
-class FavouritVC: UIViewController {
+struct cellData
+{
+    var iscollapsed: Bool
+    var data: [String]
+}
 
-    var data = ["العيادات","المستشفيات","معامل التحاليل","الصيدليات","الفنادق","المطاعم"]
-    var numberOfRows = 0
-    var iscollapsed = true
-    var sectionTitl = "العيادات"
-    let button = UIButton(type: .system)
+class FavouritVC: UIViewController {
     
+    var tableViewData = [cellData]()
+    var hederView: HeaderView!
     @IBOutlet weak var sectionsTableView: UITableView!
-    @IBOutlet weak var itemsTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableViewData = [cellData(iscollapsed: true, data: ["0,0", "0,1"]) ,
+        cellData(iscollapsed: true, data: ["1,0", "1,1"]),
+        cellData(iscollapsed: true, data: ["2,0", "2,1"]),
+        cellData(iscollapsed: true, data: ["3,0", "3,1"]),
+        cellData(iscollapsed: true, data: ["4,0", "4,1"]),
+        cellData(iscollapsed: true, data: ["5,0", "5,1"]),]
     }
     
 }
@@ -28,51 +35,42 @@ class FavouritVC: UIViewController {
 extension FavouritVC: UITableViewDelegate,UITableViewDataSource
 {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        button.setTitle(sectionTitl, for: .normal)
-        button.backgroundColor = #colorLiteral(red: 0.1656232178, green: 0.2400336862, blue: 0.6871221662, alpha: 1)
-        button.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 25)
-        button.titleLabel?.textAlignment = .center
-        button .addTarget(self, action: #selector(didHeaderTapped), for: .touchUpInside)
-        return button
-    }
-    
-    @objc func didHeaderTapped() {
-        if iscollapsed
-        {
-            iscollapsed = false
-            numberOfRows = 6
-            sectionsTableView.reloadData()
-        }
-        else {
-            iscollapsed = true
-            numberOfRows = 0
-            sectionsTableView.reloadData()
-        }
+        return tableViewData.count
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 45
+        return 60
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return numberOfRows
+        if tableViewData[section].iscollapsed == false {
+            return tableViewData[section].data.count
+        } else {
+            return 0
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        hederView = HeaderView()
+        hederView.button.tag = section
+        hederView.button.addTarget(self, action: #selector(didHeaderTapped(button:)), for: .touchUpInside)
+        hederView.setupHeader(imageName: LocalService.instance.Categories[section].imgName, title: LocalService.instance.Categories[section].title)
+        return hederView
+    }
+    
+    @objc func didHeaderTapped(button: UIButton) {
+        let iscollapsed = tableViewData[button.tag].iscollapsed
+        tableViewData[button.tag].iscollapsed = !iscollapsed
+        sectionsTableView.reloadSections([button.tag], with: .fade)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "sectionCell", for: indexPath)
-        cell.textLabel?.text = data[indexPath.row]
+        cell.textLabel?.text = tableViewData[indexPath.section].data[indexPath.row]
         cell.textLabel?.textColor = #colorLiteral(red: 0.1656232178, green: 0.2400336862, blue: 0.6871221662, alpha: 1)
         cell.textLabel?.font = UIFont.systemFont(ofSize: 20)
         cell.textLabel?.textAlignment = .center
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        sectionTitl = data[indexPath.row]
-        didHeaderTapped()
-    }
 }
