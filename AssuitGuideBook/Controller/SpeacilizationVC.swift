@@ -22,7 +22,7 @@ class SpeacilizationVC: UIViewController {
     {
         let activityView = UIActivityIndicatorView(style: .gray)
         activityView.center = self.view.center
-        activityView.transform = CGAffineTransform(scaleX: 3, y: 3)
+        activityView.transform = CGAffineTransform(scaleX: 2, y: 2)
         activityView.color = #colorLiteral(red: 0.1656232178, green: 0.2400336862, blue: 0.6871221662, alpha: 1)
         activityView.hidesWhenStopped = true
         self.view.addSubview(activityView)

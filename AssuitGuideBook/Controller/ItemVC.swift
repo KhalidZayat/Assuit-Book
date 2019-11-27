@@ -49,6 +49,11 @@ class ItemVC: UIViewController {
             
             if error == nil{
                 self.items = items ?? [Item]()
+                for item in self.items {
+                    if  RealmCrud.readItem(name: item.name) != nil {
+                        item.isSelected = true
+                    }
+                }
                 self.itemsTableView.reloadData()
                 activityView.stopAnimating()
             }
@@ -78,10 +83,9 @@ extension ItemVC: UITableViewDataSource,UITableViewDelegate
     }
 }
 
+//item operations
 extension ItemVC: ItemCellDelegate
 {
-    
-    
     //call item's phone
     func makeACall(with id : IndexPath) {
         
@@ -121,11 +125,21 @@ extension ItemVC: ItemCellDelegate
     
     func addToFavourites(with id: IndexPath, isSelected: Bool) {
         self.items[id.row].isSelected = isSelected
+        
+        switch isSelected {
+            //add to favourite
+            case true:
+                RealmCrud.insert(item: FavouriteItem(name: self.items[id.row].name, phone: self.items[id.row].phone, address: self.items[id.row].address, imageName: self.category!.imgName))
+            
+            //delete from favourite
+        case false:
+                RealmCrud.deleteItem(name: self.items[id.row].name)
+        }
     }
     
 }
 
-
+//searching
 extension ItemVC: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if !searchText.isEmpty {

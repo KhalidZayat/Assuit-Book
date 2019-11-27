@@ -23,8 +23,6 @@ class LocalService {
     
     let hospitalsList = ["المستشفيات العامة","المستشفيات الخاصة"]
     
-    let SectionsList = ["العيادات","المستشفيات","معامل التحاليل","الصيدليات","الفنادق","المطاعم"]
-    
     func getCategories() -> [Category] {
         return Categories
     }
